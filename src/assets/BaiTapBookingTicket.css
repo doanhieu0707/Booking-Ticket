@@ -1,0 +1,250 @@
+/* ===== layout chính ===== */
+.booking-container {
+  min-height: 100vh;
+  background-image: url('./bgmovie.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 40px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.booking-inner {
+  width: auto;
+  display: flex;
+  gap: 24px;
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+/* left / right panels */
+.left-panel { flex: 1.4; padding-right: 10px; }
+.right-panel {
+  width: 340px;
+  background: rgba(0,0,0,0.85);
+  padding: 16px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+/* title + screen */
+.title {
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 8px;
+  margin-left: 55px;
+}
+.screen {
+  width: 93%;
+  margin: 0 53px 18px;
+  background: linear-gradient(180deg, #ffb58a, #ff9966);
+  color: #fff;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* seat area */
+.seat-area {
+  margin-top: 10px;
+}
+
+/* each row: left label + grid of seats */
+.seat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* A B C ... */
+.firstChar {
+  width: 45px;
+  color: yellow;
+  font-size: 22px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+/* grid for seats (12 columns) */
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 50px);
+  gap: 10px;
+}
+
+/* seat (box) styles */
+.ghe,
+.gheDangChon,
+.gheDuocChon,
+.rowNumber {
+  width: 50px;
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* default empty seat */
+.ghe {
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border: 3px solid orange;
+  cursor: pointer;
+  transition: transform .12s, background .12s;
+}
+.ghe:hover { transform: translateY(-4px); background: rgba(255,165,0,0.9); color: #000; }
+
+/* selected */
+.gheDangChon {
+  background: rgb(109,238,109);
+  border: 3px solid rgb(109,238,109);
+  color: #000;
+}
+
+/* booked */
+.gheDuocChon {
+  background: orange;
+  border: 3px solid orange;
+  color: #000;
+  cursor: not-allowed;
+}
+
+/* row label numbers (first row) */
+.rowNumber {
+  background: transparent;
+  border: none;
+  color: yellow;
+  font-weight: 700;
+}
+
+/* right panel content */
+.ticket-list { 
+    margin-bottom: 12px; 
+}
+
+.ticket-row { 
+    display:flex; 
+    justify-content:space-between; 
+    padding:6px 0; 
+    border-bottom: 1px dashed rgba(255,255,255,0.06); 
+}
+
+.total { 
+    display:flex; 
+    justify-content:space-between; 
+    font-weight:700; 
+    margin-top: 12px; 
+}
+
+/* buttons */
+.btns { 
+    display:flex; 
+    gap:8px; 
+    margin-top:14px; 
+}
+
+.btn { 
+    flex:1; 
+    padding:10px 8px; 
+    border-radius:8px; 
+    font-weight:700; 
+    cursor:pointer; 
+    border:none; 
+}
+
+.btn.confirm { 
+    background: orange; 
+    color:#111; 
+}
+
+.btn.clear { 
+    background: #222; 
+    color:#fff; 
+    border:1px solid #444; 
+}
+
+/* legend boxes */
+.legend { 
+    display:grid; 
+    gap:24px; 
+    margin-top:20px; 
+    align-items:center; 
+}
+
+.legendItem { 
+    display:flex; 
+    align-items:center; 
+    gap:8px; 
+    color:#fff; 
+}
+
+.legendBox { 
+    width:22px; 
+    height:22px; 
+    border-radius:4px; 
+    border:2px solid orange; 
+}
+
+/* mapping */
+.legendBox.ghe { 
+    background: transparent; 
+}
+
+.legendBox.gheDangChon { 
+    background: rgb(109,238,109); 
+    border-color: rgb(109,238,109); 
+}
+
+.legendBox.gheDuocChon { 
+    background: orange; 
+    border-color: orange; 
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.inputGroup label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.inputGroup input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #222;
+  color: #fff;
+}
+
+/* responsive tweaks if needed */
+@media (max-width: 1100px) {
+  .booking-inner { 
+    flex-direction: column; 
+    width: 95%; 
+    }
+
+  .right-panel {
+    width: 100%; 
+    }
+
+  .seat-grid { 
+    grid-template-columns: repeat(8, 50px); 
+    } 
+}
